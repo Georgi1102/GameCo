@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="mainTag">
+    <div class="text-center">
+        <h1 class="display-4">Welcome to GameCo.</h1>
+        @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+    </div>
+
+    @*Slider*@
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container d-flex align-items-center">
+                    <div class="row align-items-center">
+                        <img class="img-fluid" src="~/Images/Test1.png" alt="First slide">
+                    </div>
+                    <div class="col-12 col-md-4 offset-md-1 ml-md-auto text-left">
+                        <h1>Game 1</h1>
+                        <p>Info about game</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container d-flex align-items-center">
+                    <div class="row align-items-center">
+                        <img class="img-fluid" width="1200" height="900" src="~/Images/Test1.png" alt="First slide">
+                    </div>
+                    <div class="col-12 col-md-4 offset-md-1 ml-md-auto text-left">
+                        <h1>Game 2</h1>
+                        <p>Info about game</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container d-flex align-items-center">
+                    <div class="row align-items-center">
+                        <img class="img-fluid" src="~/Images/Test1.png" alt="First slide">
+                    </div>
+                    <div class="col-12 col-md-4 offset-md-1 ml-md-auto text-left">
+                        <h1>Game 3</h1>
+                        <p>Info about game</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+</div>
