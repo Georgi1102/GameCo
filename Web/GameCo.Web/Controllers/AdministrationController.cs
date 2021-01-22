@@ -1,4 +1,5 @@
-﻿using GameCo.Web.Models;
+﻿using GameCo.Data.Models;
+using GameCo.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,10 +12,12 @@ namespace GameCo.Web.Controllers
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<GameCoUser> userManager;
 
-        public AdministrationController(RoleManager<IdentityRole> roleManager)
+        public AdministrationController(RoleManager<IdentityRole> roleManager, UserManager<GameCoUser> userManager)
         {
             this.roleManager = roleManager;
+            this.userManager = userManager;
         }
 
         [HttpGet]
@@ -26,7 +29,7 @@ namespace GameCo.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRole(CrateRoleViewModel createModel)
         {
-           
+
             if (ModelState.IsValid)
             {
                 IdentityRole identity = new IdentityRole
@@ -55,7 +58,65 @@ namespace GameCo.Web.Controllers
             var roles = roleManager.Roles;
             return View(roles);
         }
-            
 
+        [HttpGet]
+        public async Task<IActionResult> EditRole(string id)
+        {
+            var roleToEdit = await roleManager.FindByIdAsync(id);
+
+            if (roleManager == null)
+            {
+                ViewBag.ErrorMessage = $"Role with the given Id: {id} is not found";
+                return View("NotFound");
+            }
+
+            //This is the view just bad naming. Welcome to 3am. 
+            var model = new EditRoleModel
+            {
+                Id = roleToEdit.Id,
+                RoleName = roleToEdit.Name
+            };
+
+            foreach (var user in userManager.Users)
+            {
+                if (await userManager.IsInRoleAsync(user, roleToEdit.Name))
+                {
+                    model.Users.Add(user.UserName);
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditRole(EditRoleModel editRoleModel)
+        {
+            var roleToEdit = await roleManager.FindByIdAsync(editRoleModel.Id);
+
+            if (roleManager == null)
+            {
+                ViewBag.ErrorMessage = $"Role with the given Id: {editRoleModel.Id} is not found";
+                return View("NotFound");
+            }
+
+            else
+            {
+                roleToEdit.Name = editRoleModel.RoleName;
+                var editedResult = await roleManager.UpdateAsync(roleToEdit);
+
+                if (editedResult.Succeeded)
+                {
+                    return RedirectToAction("ListAllRoles");
+                }
+
+                foreach (var error in editedResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+            }
+
+            return View(editRoleModel);
+        }
     }
 }
