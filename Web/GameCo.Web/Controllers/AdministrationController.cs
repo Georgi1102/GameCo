@@ -1,5 +1,6 @@
 ﻿using GameCo.Data.Models;
 using GameCo.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameCo.Web.Controllers
 {
+   
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -67,7 +69,7 @@ namespace GameCo.Web.Controllers
             if (roleManager == null)
             {
                 ViewBag.ErrorMessage = $"Role with the given Id: {id} is not found";
-                return View("NotFound");
+                return View("NotFoundError");
             }
 
             //This is the view just bad naming. Welcome to 3am. 
@@ -96,7 +98,7 @@ namespace GameCo.Web.Controllers
             if (roleManager == null)
             {
                 ViewBag.ErrorMessage = $"Role with the given Id: {editRoleModel.Id} is not found";
-                return View("NotFound");
+                return View("NotFoundError");
             }
 
             else
@@ -129,7 +131,7 @@ namespace GameCo.Web.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with the given Id: {roleId} is not found";
-                return View("NotFound");
+                return View("NotFoundError");
             }
 
             var model = new List<UserRoleViewModel>();
@@ -165,7 +167,7 @@ namespace GameCo.Web.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with the given Id: {roleId} is not found";
-                return View("NotFound");
+                return View("NotFoundError");
             }
 
             for (int i = 0; i < model.Count; i++)
@@ -209,5 +211,37 @@ namespace GameCo.Web.Controllers
 
             return RedirectToAction("EditRole", new { Id = roleId });
         }
+
+        //Danger zone 
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string roleId)
+        {
+            var role = await roleManager.FindByIdAsync(roleId);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"There is no role with the given Id: {roleId}";
+                return View("NotFoundError");
+            }
+
+            else
+            {
+                var result = await roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListAllRoles");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("ListAllRoles");
+            }
+        }
+
     }
 }
