@@ -7,6 +7,8 @@ namespace GameCo.Data
 {
     public class GameCoDbContext : IdentityDbContext<GameCoUser, IdentityRole, string>
     {
+        public virtual DbSet<GameCoGames> Games { get; set; }
+
         public GameCoDbContext(DbContextOptions<GameCoDbContext> options)
             : base(options)
         {

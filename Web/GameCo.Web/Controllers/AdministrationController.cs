@@ -215,13 +215,13 @@ namespace GameCo.Web.Controllers
         //Danger zone 
 
         [HttpPost]
-        public async Task<IActionResult> DeleteRole(string roleId)
+        public async Task<IActionResult> DeleteRole(string id)
         {
-            var role = await roleManager.FindByIdAsync(roleId);
+            var role = await roleManager.FindByIdAsync(id);
 
             if (role == null)
             {
-                ViewBag.ErrorMessage = $"There is no role with the given Id: {roleId}";
+                ViewBag.ErrorMessage = $"There is no role with the given Id: {id}";
                 return View("NotFoundError");
             }
 

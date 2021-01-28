@@ -46,6 +46,7 @@ namespace GameCo.Web
             }
             ).AddEntityFrameworkStores<GameCoDbContext>();
 
+           
 
             services.AddControllersWithViews();
             services.AddRazorPages();

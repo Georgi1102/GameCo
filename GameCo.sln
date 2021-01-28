@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.Data.Models", "Data\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.Web", "Web\GameCo.Web\GameCo.Web.csproj", "{5CBAF276-DEA2-496C-A6B7-C5F7AFF4B8AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCo.Web.Models", "Web\GameCo.Web.Models\GameCo.Web.Models.csproj", "{C32A165E-CFEE-4D0B-9BDF-3E6E785F9484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5CBAF276-DEA2-496C-A6B7-C5F7AFF4B8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CBAF276-DEA2-496C-A6B7-C5F7AFF4B8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBAF276-DEA2-496C-A6B7-C5F7AFF4B8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32A165E-CFEE-4D0B-9BDF-3E6E785F9484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32A165E-CFEE-4D0B-9BDF-3E6E785F9484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32A165E-CFEE-4D0B-9BDF-3E6E785F9484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32A165E-CFEE-4D0B-9BDF-3E6E785F9484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{59364D44-B6B6-4414-8822-671D88C0BC96} = {8A09472E-15AC-4E68-93DA-1BA14564F943}
 		{A459F4CB-A75A-445C-AC1A-1A2EDDC55AE4} = {8A09472E-15AC-4E68-93DA-1BA14564F943}
 		{5CBAF276-DEA2-496C-A6B7-C5F7AFF4B8AB} = {65007575-DC23-4C96-8F52-F3B0AE11B08B}
+		{C32A165E-CFEE-4D0B-9BDF-3E6E785F9484} = {65007575-DC23-4C96-8F52-F3B0AE11B08B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5739587-A2EC-435D-BC8D-39A4C1794AFB}
