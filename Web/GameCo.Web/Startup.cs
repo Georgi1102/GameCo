@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,6 +36,8 @@ namespace GameCo.Web
 
             services.AddTransient<IMappingService, MappingService>();
             services.AddTransient<IGamesService, GameService>();
+            services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(
+                Directory.GetCurrentDirectory(), "UploadedFiles")));
 
 
             //services.AddIdentity<GameCoUser, IdentityRole<string>>(options =>)  ===> same exeption on line 35
