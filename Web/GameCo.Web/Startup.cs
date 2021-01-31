@@ -1,5 +1,6 @@
 using GameCo.Data;
 using GameCo.Data.Models;
+using GameCo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,9 @@ namespace GameCo.Web
             services.AddDbContext<GameCoDbContext>(options =>
                    options.UseSqlServer(
                        this.Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IMappingService, MappingService>();
+            services.AddTransient<IGamesService, GameService>();
 
 
             //services.AddIdentity<GameCoUser, IdentityRole<string>>(options =>)  ===> same exeption on line 35

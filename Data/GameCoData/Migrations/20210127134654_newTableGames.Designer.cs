@@ -23,9 +23,9 @@ namespace GameCoData.Migrations
 
             modelBuilder.Entity("GameCo.Data.Models.GameCoGames", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("nvarchar(max)")
                         .UseIdentityColumn();
 
                     b.Property<string>("Name")

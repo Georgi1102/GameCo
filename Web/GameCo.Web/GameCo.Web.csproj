@@ -20,6 +20,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\GameCo.Data.Models\GameCo.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\GameCoData\GameCoData.csproj" />
+    <ProjectReference Include="..\..\Service\GameCo.Services.Models\GameCo.Services.Models.csproj" />
+    <ProjectReference Include="..\..\Service\GameCo.Services\GameCo.Services.csproj" />
+    <ProjectReference Include="..\GameCo.Web.Models\GameCo.WebModels.csproj" />
   </ItemGroup>
 
 </Project>
