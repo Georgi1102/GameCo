@@ -25,4 +25,8 @@
     <ProjectReference Include="..\GameCo.Web.Models\GameCo.WebModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+
 </Project>

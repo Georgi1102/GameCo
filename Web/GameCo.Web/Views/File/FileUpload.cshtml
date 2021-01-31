@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Upload file";
+}
+
+
+<form method="post" enctype="multipart/form-data" asp-controller="File" asp-action="FileUpload">
+    <div class="form-group">
+        <div class="col-md-20">
+            <h1>Counter</h1>
+            <h4>Choose file to upload</h4>
+            <input type="file" name="someFile" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="FileUpload" />
+    </div>
+
+    <div class="form-group">
+        <span id="currState">@TempData["msg"]</span>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/Redirect.js"></script>
+}
