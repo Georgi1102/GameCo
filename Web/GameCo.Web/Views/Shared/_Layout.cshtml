@@ -13,7 +13,7 @@
 <body>
     <div class="container-fluid app-container">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3" style="background: rgb(43,186,196); background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%); ">
+            <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3 greengradient" >
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     <img src="~/Images/logo.png">
                 </a>
@@ -25,26 +25,26 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item active">
-                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link" style="font-size:18px" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
 
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item active">
-                                    <a class="nav-link" asp-controller="Administration" asp-action="ListAllRoles">List Of Roles</a>
+                                    <a class="nav-link" style="font-size:18px" asp-controller="Administration" asp-action="ListAllRoles">List of Roles</a>
                                 </li>
 
                                 <li class="nav-item active">
-                                    <a class="nav-link" asp-controller="Games" asp-action="CreateGame">Create a game</a>
+                                    <a class="nav-link" style="font-size:18px" asp-controller="Games" asp-action="CreateGame">Create a game</a>
                                 </li>
 
                                 <li class="nav-item active">
-                                    <a class="nav-link" asp-controller="File" asp-action="FileUpload">Upload file</a>
+                                    <a class="nav-link" style="font-size:18px" asp-controller="File" asp-action="FileUpload">Upload file</a>
                                 </li>
                             }
 
                             <li class="nav-item active">
-                                <a class="nav-link" asp-controller="File" asp-action="ListAllFiles">List of the files</a>
+                                <a class="nav-link" style="font-size:18px" asp-controller="File" asp-action="ListAllFiles">List of the files</a>
                             </li>
 
                             <li class="nav-item">
@@ -58,14 +58,14 @@
                         else
                         {
                             <li class="nav-item active">
-                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link" style="font-size:18px" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
 
                             <li class="nav-item active">
-                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                <a class="nav-link" style="font-size:18px" asp-area="Identity" asp-page="/Account/Login">Login</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                                <a class="nav-link" style="font-size:18px" asp-area="Identity" asp-page="/Account/Register">Register</a>
                             </li>
                         }
                     </ul>
@@ -77,8 +77,8 @@
         <main role="main">
             @RenderBody()
         </main>
-        <footer>
-            <p>GameCo, Copyright &copy; 2021</p>
+        <footer class="greengradient">
+            <p2>GameCo, Copyright &copy; 2021</p2>
         </footer>
     </div>
 
