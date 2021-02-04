@@ -10,29 +10,31 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Input.Username"></label>
-                    <input asp-for="Input.Username" class="form-control" placeholder="Enter username:" />
+                    <input asp-for="Input.Username" class="form-control textbox" placeholder="Enter username:" />
 
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" placeholder="Enter email:" />
+                    <input asp-for="Input.Email" class="form-control textbox" placeholder="Enter email:" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" placeholder="Enter password:" />
+                    <input asp-for="Input.Password" class="form-control textbox" placeholder="Enter password:" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.ConfirmPassword"></label>
-                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Re-enter password:" />
+                    <input asp-for="Input.ConfirmPassword" class="form-control textbox" placeholder="Re-enter password:" />
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.City"></label>
-                    <input asp-for="Input.City" class="form-control" placeholder="Enter city:" />
+                    <input asp-for="Input.City" class="form-control textbox"  placeholder="Enter city:" />
                 </div>
-                <button type="submit" class="btn btn-custom">Register</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom">Register</button>
+                </div>
             </form>
         </div>
     </div>

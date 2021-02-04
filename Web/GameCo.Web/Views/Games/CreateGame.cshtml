@@ -1,30 +1,25 @@
 ﻿@using GameCo.WebModels.Binding;
 @model CreateGameBindingModel
 
+<div class="creategamebox">
+    <img src="~/Images/AddGame.png" class="avatar"/>
+    <div class="row ml-5 mt-5">
+        <div>
+            <form method="post">
+                <hc>Create a Game.</hc>
 
-@{ ViewData["Title"] = "Create Game"; }
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter game name:" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
 
-<div class="col-md-4 ml-2 mt-4">
-    <h1>@ViewData["Title"]</h1>
-</div>
-
-<div class="row ml-2 mt-1">
-    <div class="col-md-4">
-        <form method="post">
-            <h4>Create a Game.</h4>
-
-            <div asp-validation-summary="All" class="text-danger"></div>
-
-            <div class="form-group">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" placeholder="Enter game name:" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-
-            <button type="submit" class="btn btn-custom">CreateGame</button>
-        </form>
+                <button type="submit" class="btn btn-customCG">Create game</button>
+            </form>
+        </div>
     </div>
 </div>
+
 
 @section Scripts {
         <partial name="_ValidationScriptsPartial" />
