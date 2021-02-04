@@ -21,10 +21,8 @@ namespace GameCoData.Migrations
 
             modelBuilder.Entity("GameCo.Data.Models.GameCoGames", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()

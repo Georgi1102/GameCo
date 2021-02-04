@@ -10,7 +10,7 @@ namespace GameCo.Data.Models
 {
     public class GameCoGames
     {        
-        //[Key]
+        [Key]
         public string Id { get; set; }
 
         [Required]
