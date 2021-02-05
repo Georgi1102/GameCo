@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body >
     <div class="container-fluid app-container">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3 greengradient" >
@@ -28,18 +28,17 @@
                                 <a class="nav-link" style="font-size:18px" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
 
-                            @if (User.IsInRole("Admin"))
+                            @if (User.IsInRole("Admin") || User.IsInRole("admin"))
                             {
-                                <li class="nav-item active">
-                                    <a class="nav-link" style="font-size:18px" asp-controller="Administration" asp-action="ListAllRoles">List of Roles</a>
-                                </li>
-
-                                <li class="nav-item active">
-                                    <a class="nav-link" style="font-size:18px" asp-controller="Games" asp-action="CreateGame">Create a game</a>
-                                </li>
-
-                                <li class="nav-item active">
-                                    <a class="nav-link" style="font-size:18px" asp-controller="File" asp-action="FileUpload">Upload file</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" style="font-size:18px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Administration
+                                    </a>
+                                    <div class="dropdown-menu bgcolor " aria-labelledby="navbarDropdown">
+                                        <a class="nav-link ml-3" style="font-size:18px" asp-controller="Administration" asp-action="ListAllRoles">List of Roles</a>
+                                        <a class="nav-link ml-3" style="font-size:18px" asp-controller="Games" asp-action="CreateGame">Create a game</a>
+                                        <a class="nav-link ml-3" style="font-size:18px" asp-controller="File" asp-action="FileUpload">Upload file</a>
+                                    </div>
                                 </li>
                             }
 

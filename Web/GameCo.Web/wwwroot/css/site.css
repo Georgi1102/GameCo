@@ -162,9 +162,10 @@ p2 {
     top: -50px;
     left: calc(50% - 50px);
 }
-.inputcustom {
-    background
-}
 hc{
     font-size:34px;
+}
+.bgcolor {
+    background: rgb(43,186,196);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
 }
