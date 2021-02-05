@@ -28,7 +28,7 @@
                                 <a class="nav-link" style="font-size:18px" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
 
-                            @if (User.IsInRole("Admin"))
+                            @if (User.IsInRole("Admin") || User.IsInRole("admin"))
                             {
                                 <li class="nav-item active">
                                     <a class="nav-link" style="font-size:18px" asp-controller="Administration" asp-action="ListAllRoles">List of Roles</a>
