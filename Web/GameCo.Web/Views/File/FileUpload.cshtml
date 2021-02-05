@@ -5,7 +5,7 @@
 
 <form method="post" enctype="multipart/form-data" asp-controller="File" asp-action="FileUpload">
     <div class="uploadfilebox">
-        <img src="~/Images/FileAdd.png" class="addfile"/>
+        <img src="~/Images/FileAdd.png" class="addfile" />
         <div class="form-group row ml-5 mt-5">
             <div class="col-md-20">
                 <h1>Counter</h1>
@@ -17,12 +17,13 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group text-center">
             <span id="currState">@TempData["msg"]</span>
+        </div>
+        <div class="text-center">
+            <script src="~/js/Redirect.js"></script>
         </div>
     </div>
 </form>
 
-@section Scripts{
-    <script src="~/js/Redirect.js"></script>
-}
+
