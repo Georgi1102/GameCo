@@ -21,6 +21,13 @@
     height: 40px;
     width: 120px;
 }
+.btn-customCR {
+    background: rgb(80,86,87);
+    background: linear-gradient(90deg, rgba(80,86,87,1) 1%, rgba(61,137,143,1) 20%, rgba(34,152,161,1) 50%, rgba(68,117,121,1) 80%, rgba(80,86,87,1) 98%);
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+}
 .btn-green {
     background: rgb(142,212,134);
     background: linear-gradient(90deg, rgba(142,212,134,1) 0%, rgba(94,226,80,1) 50%, rgba(142,212,134,1) 100%);
@@ -63,6 +70,7 @@ p2 {
     height: auto;
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -74,6 +82,18 @@ p2 {
     height: auto;
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+.createrolebox {
+    width: 480px;
+    height: auto;
+    background: rgb(43,186,196);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -84,6 +104,7 @@ p2 {
     height: auto;
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -95,6 +116,7 @@ p2 {
     height: 320px;
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -106,6 +128,7 @@ p2 {
     height: auto;
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -117,6 +140,7 @@ p2 {
     height: auto;
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    border-radius: 20px;
     top: 50%;
     left: 50%;
     position: relative;
