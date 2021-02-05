@@ -1,16 +1,19 @@
 ﻿@model FilesViewModel
 
-<p> List of Files</p>
 
-<ul>
-    @foreach (var file in Model.Files)
-    {
-        <li>
-            <a asp-action="Download" 
-               
-               asp-route-someFile="@file.Name">
-                @file.Name
-            </a>
-        </li>
-    }
-</ul>
+<div class="listoffilesbox">
+    <div class="d-flex justify-content-center">
+        <hc> List of Files </hc>
+    </div>
+    <div class="mt-3 ml-3 mr-3 mb-3">
+        <ul>
+            @foreach (var file in Model.Files)
+             {
+                <li style="padding:5px 5px 5px 5px">
+                    <a asp-action="Download" asp-route-someFile="@file.Name"> @file.Name </a>
+                </li>
+             }
+        </ul>
+       </div>
+</div>
+

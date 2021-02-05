@@ -2,14 +2,19 @@
 @model IEnumerable<IdentityRole>
 
 
-<h1>All Roles</h1>
-
+<div class="addrolesbox ">
+    <div class="d-flex justify-content-center">
+        <h1>All Roles</h1>
+    </div>
+    <div class="text-center">
+        <a class="btn mb-3 btn-custom " asp-action="CreateRole" asp-controller="administration">Add role</a>
+    </div>
+</div>
 @if (Model.Any())
 {
-    <a class="btn mb-3 btn-custom" asp-action="CreateRole" asp-controller="administration">Add role</a>
     foreach (var role in Model)
     {
-        <div class="card mb-3">
+        <div class="card mb-3 mt-4">
             <div class="card-header">
                 Role Id : @role.Id
             </div>
