@@ -9,11 +9,22 @@
     <div class="mt-3 ml-3 mr-3 mb-3">
         <ul>
             @foreach (var file in Model.Files)
-             {
-                <li style="padding:5px 5px 5px 5px">
-                    <a asp-action="Download" asp-route-someFile="@file.Name"> @file.Name </a>
-                </li>
-             }
+            {
+                @if (User.IsInRole("Admin"))
+                {
+                    <li style="padding:5px 5px 5px 5px">
+                        <a asp-action="Download" asp-route-someFile="@file.Name"> @file.Name </a>
+                        <a asp-action="Delete" asp-route-someFile="@file.Name" class="btn btn-red"> Delete </a>
+                    </li>
+                }
+
+                else
+                {
+                    <li style="padding:5px 5px 5px 5px">
+                        <a asp-action="Download" asp-route-someFile="@file.Name"> @file.Name </a>
+                    </li>
+                }
+            }
         </ul>
        </div>
 </div>

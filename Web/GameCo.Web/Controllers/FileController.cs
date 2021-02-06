@@ -105,6 +105,23 @@ namespace GameCo.Web.Controllers
             return File(memory, GetContentType(path), Path.GetFileName(path));
         }
 
+        public async Task<IActionResult> Delete(string someFile)
+        {
+            try
+            {
+                if (System.IO.File.Exists(Path.Combine(folderToUpload, someFile)))
+                {
+                    System.IO.File.Delete(Path.Combine(folderToUpload, someFile));
+                }
+            }
+            catch (Exception)
+            {
+                throw new FileNotFoundException();
+            }
+
+            return Redirect("~/Home");
+        }
+
         private string GetContentType(string path)
         {
             var types = GetMimeTypes();

@@ -15,11 +15,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.Data.Models", "Data\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.Web", "Web\GameCo.Web\GameCo.Web.csproj", "{5CBAF276-DEA2-496C-A6B7-C5F7AFF4B8AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCo.WebModels", "Web\GameCo.Web.Models\GameCo.WebModels.csproj", "{3E28356B-9B3E-4283-8990-172F8CF65E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.WebModels", "Web\GameCo.Web.Models\GameCo.WebModels.csproj", "{3E28356B-9B3E-4283-8990-172F8CF65E82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCo.Services", "Service\GameCo.Services\GameCo.Services.csproj", "{8ACFEECF-6CCF-4A61-9C9B-4588658BAA51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.Services", "Service\GameCo.Services\GameCo.Services.csproj", "{8ACFEECF-6CCF-4A61-9C9B-4588658BAA51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCo.Services.Models", "Service\GameCo.Services.Models\GameCo.Services.Models.csproj", "{75CE3072-58A1-4B5D-BF61-2B407C392403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameCo.Services.Models", "Service\GameCo.Services.Models\GameCo.Services.Models.csproj", "{75CE3072-58A1-4B5D-BF61-2B407C392403}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3001276E-0A54-4F80-BED6-378C2EB18F62}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
