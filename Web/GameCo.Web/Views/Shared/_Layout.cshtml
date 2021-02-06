@@ -34,16 +34,18 @@
                                     <a class="nav-link dropdown-toggle" style="font-size:18px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Administration
                                     </a>
-                                    <div class="dropdown-menu bgcolor " aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu bgcolor" aria-labelledby="navbarDropdown">
                                         <a class="nav-link ml-3" style="font-size:18px" asp-controller="Administration" asp-action="ListAllRoles">List of Roles</a>
+                                        <div class="dropdown-divider bgcolor" style="border-color:deepskyblue"></div>
                                         <a class="nav-link ml-3" style="font-size:18px" asp-controller="Games" asp-action="CreateGame">Create a game</a>
+                                        <div class="dropdown-divider bgcolor" style="border-color:deepskyblue"></div>
                                         <a class="nav-link ml-3" style="font-size:18px" asp-controller="File" asp-action="FileUpload">Upload file</a>
                                     </div>
                                 </li>
                             }
 
                             <li class="nav-item active">
-                                <a class="nav-link" style="font-size:18px" asp-controller="File" asp-action="ListAllFiles">List of the files</a>
+                                <a class="nav-link" style="font-size:18px" asp-controller="File" asp-action="ListAllFiles">Download games</a>
                             </li>
 
                             <li class="nav-item">
