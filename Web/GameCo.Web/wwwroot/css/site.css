@@ -169,5 +169,10 @@ hc{
     background: rgb(43,186,196);
     background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
 }
-
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    text-decoration: none;
+    color: initial;
+}
 
