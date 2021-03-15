@@ -25,24 +25,29 @@ namespace GameCo.Web.Controllers
             this.fileProvider = fileProvider;
         }
 
-       
+
         [HttpGet]
         public async Task<IActionResult> UnityData(string filePath)
         {
             try
             {
-                filePath = @"C:\Users\GOGARSKY\Desktop\Web project.txt";
-
-                List<string> linesInFile = new List<string>();
+                filePath = @"C:\Users\GOGARSKY\Desktop\BinaryTest.txt";
                 string[] lines = System.IO.File.ReadAllLines(filePath);
+
+                List<string> linesToBinary = new List<string>();              
 
                 foreach (var line in lines)
                 {
                     //GOD BLESS OOP
-                    string linesToBinary =  GameCo.Web.Controllers.ExtendedLogic.ToBinary.ToBinaryClass(line, false);
+
+                    string lineToBinary =  GameCo.Web.Controllers.ExtendedLogic.ToBinary.ToBinaryClass(line, false);
                     //TOO LAZY TO MAKE VIEW - 4 am vibes
-                    Console.WriteLine(linesToBinary);
+                   
+                    linesToBinary.Add(lineToBinary);
+
                 }
+                System.IO.File.WriteAllLines(@"C:\Users\GOGARSKY\Desktop\WriteFileStream.txt",  linesToBinary);
+                Console.WriteLine(string.Join(',', linesToBinary));
             }
 
             catch (Exception)
@@ -50,7 +55,7 @@ namespace GameCo.Web.Controllers
                 throw new FileNotFoundException();
             }
 
-            return View("NotFoundError");
+            return Redirect("~/Home");
         }
 
         [HttpGet]
