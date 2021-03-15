@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using GameCo.Web.Controllers.ExtendedLogic;
 
 namespace GameCo.Web.Controllers
 {
-    
+
     public class FileController : Controller
     {
         private const string folderToUpload = "UploadedFiles";
@@ -22,6 +23,33 @@ namespace GameCo.Web.Controllers
         public FileController(IFileProvider fileProvider)
         {
             this.fileProvider = fileProvider;
+        }
+
+       
+        [HttpGet]
+        public async Task<IActionResult> UnityData(string filePath)
+        {
+            try
+            {
+                filePath = @"C:\Users\GOGARSKY\Desktop\Web project.txt";
+
+                List<string> linesInFile = new List<string>();
+                string[] lines = System.IO.File.ReadAllLines(filePath);
+
+                foreach (var line in lines)
+                {
+                    //GOD BLESS OOP
+                    string linesToBinary =  GameCo.Web.Controllers.ExtendedLogic.ToBinary.ToBinaryClass(line, false);
+                    Console.WriteLine(linesToBinary);
+                }
+            }
+
+            catch (Exception)
+            {
+                throw new FileNotFoundException();
+            }
+
+            return View("NotFoundError");
         }
 
         [HttpGet]
@@ -42,7 +70,7 @@ namespace GameCo.Web.Controllers
         {
             filePath = "";
             isUploaded = false;
-    
+
             try
             {
                 if (someFile.Length > 0)
@@ -50,7 +78,7 @@ namespace GameCo.Web.Controllers
                     string fileName = Path.GetFileName(someFile.FileName);
                     filePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), folderToUpload));
 
-                    
+
                     //DO NOT FORGET TO CLOSE THE STREAM!!!
                     using (var fileStream = new FileStream(Path.Combine(filePath, fileName), FileMode.Create))
                     {
