@@ -40,6 +40,7 @@ namespace GameCo.Web.Controllers
                 {
                     //GOD BLESS OOP
                     string linesToBinary =  GameCo.Web.Controllers.ExtendedLogic.ToBinary.ToBinaryClass(line, false);
+                    //TOO LAZY TO MAKE VIEW - 4 am vibes
                     Console.WriteLine(linesToBinary);
                 }
             }
