@@ -29,6 +29,7 @@ namespace GameCo.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> UnityData(string filePath)
         {
+            
             try
             {
                 filePath = @"C:\Users\GOGARSKY\Desktop\BinaryTest.txt";
@@ -39,15 +40,16 @@ namespace GameCo.Web.Controllers
                 foreach (var line in lines)
                 {
                     //GOD BLESS OOP
-
                     string lineToBinary =  GameCo.Web.Controllers.ExtendedLogic.ToBinary.ToBinaryClass(line, false);
-                    //TOO LAZY TO MAKE VIEW - 4 am vibes
+                   
                    
                     linesToBinary.Add(lineToBinary);
 
                 }
                 System.IO.File.WriteAllLines(@"C:\Users\GOGARSKY\Desktop\WriteFileStream.txt",  linesToBinary);
+                //TOO LAZY TO MAKE VIEW - 4 am vibes
                 Console.WriteLine(string.Join(',', linesToBinary));
+                 
             }
 
             catch (Exception)
