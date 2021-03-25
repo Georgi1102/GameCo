@@ -35,7 +35,7 @@ namespace GameCo.Web.Controllers
             var list = (from games in gameCoDbContext.Games
                         select new SelectListItem()
                         {
-                            Text = games.Id,
+                            Text = games.Name,
                             Value = games.Id.ToString(),
                         }).ToList();
 
