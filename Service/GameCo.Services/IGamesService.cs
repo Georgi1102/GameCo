@@ -9,5 +9,6 @@ namespace GameCo.Services
     public interface IGamesService
     {
         Task<bool> CreateGame(GameServiceModel gameServiceModel);
+        string FindGameById(string id);
     }
 }

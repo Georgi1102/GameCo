@@ -1,0 +1,31 @@
+﻿@model AchievementViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-md-4">
+    <form asp-controller="Achievements" asp-action="CreateAchievement" method="post" role="form">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control textbox" placeholder="Enter achievement name:" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control textbox" placeholder="Enter description:" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+            <label asp-for="GameId"></label>
+            <select asp-for="GameId"
+                    class="form-control"
+                    asp-items="@(new SelectList(Model.ListofAchievements,"Value", "Text"))">
+            </select>
+        </div>
+        <div class="form-group">
+            <input id="Submit1" class="btn btn-success" type="submit" value="submit" />
+        </div>
+    </form>
+</div>

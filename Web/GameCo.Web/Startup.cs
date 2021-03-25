@@ -31,6 +31,7 @@ namespace GameCo.Web
 
             services.AddTransient<IMappingService, MappingService>();
             services.AddTransient<IGamesService, GameService>();
+            services.AddTransient<IAchievementService, AchievementService>();
             services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(
                 Directory.GetCurrentDirectory(), "UploadedFiles")));
 
