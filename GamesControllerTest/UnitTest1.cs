@@ -2,6 +2,7 @@ using GameCo.Data;
 using GameCo.Services;
 using GameCo.Services.Models.Games;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace GamesControllerTest
     public class Tests
     {
         private GameCoDbContext gameCoDbContext;
-        private IMappingService mappingService;
-        private IGamesService gameService;
+        private Mock<IMappingService> mappingService = new Mock<IMappingService>();
+        private Mock<IGamesService> gameService;
 
         [SetUp]
         public void Setup()
@@ -22,8 +23,8 @@ namespace GamesControllerTest
                 .Options;
 
             this.gameCoDbContext = new GameCoDbContext(options);
-            this.mappingService = new MappingService();
-            this.gameService = new GameService(gameCoDbContext, mappingService);
+            this.mappingService = new Mock<IMappingService>();
+            this.gameService = new Mock<IGamesService>(gameCoDbContext, mappingService);
         }
 
         [Test]
@@ -35,6 +36,9 @@ namespace GamesControllerTest
                 Name = "Goshko"
             };
             bool result = await this.gameService.CreateGame(gamesService);
+
+            MappingService mapService = new MappingService();
+            mapService.MapOject(gamesService);
 
             //Valid data returns true
 

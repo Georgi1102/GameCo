@@ -35,7 +35,6 @@ namespace GameCo.Services
             await this.gameCoDbContext.SaveChangesAsync();
 
             return result;
-
         }
     }
 }
