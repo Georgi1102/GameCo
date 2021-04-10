@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GameCo</title>
     <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/Rating.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -27,7 +28,6 @@
                             <li class="nav-item active">
                                 <a class="nav-link" style="font-size:18px" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
-
                             @if (User.IsInRole("Admin") || User.IsInRole("admin"))
                             {
                                 <li class="nav-item dropdown">
@@ -40,6 +40,7 @@
                                         <a class="nav-link ml-3" style="font-size:18px" asp-controller="Games" asp-action="CreateGame">Create a game</a>
                                         <div class="dropdown-divider bgcolor" style="border-color:deepskyblue"></div>
                                         <a class="nav-link ml-3" style="font-size:18px" asp-controller="File" asp-action="FileUpload">Upload file</a>
+                                        <div class="dropdown-divider bgcolor" style="border-color:deepskyblue"></div>
                                         <a class="nav-link ml-3" style="font-size:18px" asp-controller="Achievements" asp-action="CreateAchievement">Create achievement</a>
                                     </div>
                                 </li>
