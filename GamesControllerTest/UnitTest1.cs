@@ -13,7 +13,8 @@ namespace GamesControllerTest
     {
         private GameCoDbContext gameCoDbContext;
         private Mock<IMappingService> mappingService = new Mock<IMappingService>();
-        private Mock<IGamesService> gameService;
+        private GameService gameService = new GameService();
+        
 
         [SetUp]
         public void Setup()
@@ -22,9 +23,7 @@ namespace GamesControllerTest
                 .UseInMemoryDatabase($"TESTS-DB-{Guid.NewGuid().ToString()}")
                 .Options;
 
-            this.gameCoDbContext = new GameCoDbContext(options);
-            this.mappingService = new Mock<IMappingService>();
-            this.gameService = new Mock<IGamesService>(gameCoDbContext, mappingService);
+            gameService = new 
         }
 
         [Test]
