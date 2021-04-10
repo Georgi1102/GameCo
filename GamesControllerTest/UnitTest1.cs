@@ -11,10 +11,9 @@ namespace GamesControllerTest
 {
     public class Tests
     {
-        private GameCoDbContext gameCoDbContext;
+        private Mock<GameCoDbContext> gameCoDbContext = new Mock<GameCoDbContext>();
         private Mock<IMappingService> mappingService = new Mock<IMappingService>();
-        private GameService gameService = new GameService();
-        
+        private IGamesService gameService;
 
         [SetUp]
         public void Setup()
@@ -23,7 +22,9 @@ namespace GamesControllerTest
                 .UseInMemoryDatabase($"TESTS-DB-{Guid.NewGuid().ToString()}")
                 .Options;
 
-            gameService = new 
+            this.gameCoDbContext = new GameCoDbContext(options);
+            this.mappingService = new MappingService();
+            this.gameService = new GameService(gameCoDbContext, mappingService);
         }
 
         [Test]
@@ -37,8 +38,7 @@ namespace GamesControllerTest
             bool result = await this.gameService.CreateGame(gamesService);
 
             MappingService mapService = new MappingService();
-            mapService.MapOject(gamesService);
-
+            mapService.
             //Valid data returns true
 
             //Exception ex = Assert.ThrowsAsync<ArgumentException>(() => this.gameService.CreateGame(gamesService));
