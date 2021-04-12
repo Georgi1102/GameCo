@@ -15,6 +15,9 @@ namespace GamesControllerTest
         private GameCoDbContext gameCoDbContext;
         private IMappingService mappingService;
         private IGamesService gameService;
+        private IRatingService ratingService;
+        private IAchievementsService achievementService;
+
 
         [SetUp]
         public void Setup()
@@ -26,8 +29,10 @@ namespace GamesControllerTest
             this.gameCoDbContext = new GameCoDbContext(options);
             this.mappingService = new MappingService();
             this.gameService = new GameService(gameCoDbContext, mappingService);
+            this.achievementService = new AchievementService(gameCoDbContext, mappingService);
         }
 
+        #region Game tests
         //should work
         [Test]
         public async Task TestIfCanCreateGameAndCheckIfTheNamesAreEqual_AndIfItCreatesNewEntity()
@@ -83,23 +88,68 @@ namespace GamesControllerTest
         public async Task TestIfFindingIdIsReturningTheCorrectValue()
         {
            
-            GameCoGames expectedGameEntity = new GameCoGames
+            GameCoGames ratingGameModel = new GameCoGames
             {
                 Id = "27",
                 Name = "Test"
             };
 
-            GameCoGames game = this.mappingService.MapOject<GameCoGames>(expectedGameEntity);
+            GameCoGames game = this.mappingService.MapOject<GameCoGames>(ratingGameModel);
             await this.gameCoDbContext.AddAsync(game);
             await this.gameCoDbContext.SaveChangesAsync();
 
-            string wantedId = this.gameService.FindGameById(expectedGameEntity.Id);
+            string wantedId = this.gameService.FindGameById(ratingGameModel.Id);
             GameCoGames theEnity = await this.gameCoDbContext.Games.FirstOrDefaultAsync();
 
             Assert.AreEqual(wantedId, theEnity.Id);
 
         }
+        #endregion
 
+        #region Rating tests
+        [Test]
+        public async Task TestIfTheUserIdIsTheCorrectOne()
+        {
+
+            GameCoRating ratingServiceModel = new GameCoRating
+            {
+                Id = "27",
+                RatingValue = 4,
+                UserId = "45",
+                GameId = "1-3"
+            };
+            GameCoRating expectedRatingEntity = new GameCoRating
+            {
+                Id = "27",
+                RatingValue = 4,
+                UserId = "45",
+                GameId = "1-3"
+            };
+
+            Assert.AreEqual(ratingServiceModel.UserId, expectedRatingEntity.UserId);
+        }
+
+        #endregion
+
+        #region Achievement tests
+
+        [Test]
+        public async Task TestIfCreatingAchievementAndSettingIdToNotNull()
+        {
+            AchievementServiceModel achievementServiceModel = new AchievementServiceModel
+            {
+                Id = "27",
+                Name = "TestName",
+                Description = "Testdescription",
+                GameId = "20"
+            };
+            bool result = await this.achievementService.CreateAchievement(achievementServiceModel);
+
+            Assert.True(result);
+            Assert.NotNull(achievementServiceModel.Id);
+        }
+
+        #endregion
 
         [TearDown]
         public void Dispose()
@@ -107,6 +157,8 @@ namespace GamesControllerTest
             this.gameCoDbContext.Dispose();
             this.mappingService = null;
             this.gameService = null;
+            this.ratingService = null;
+            this.achievementService = null;
         }
     }
 }
