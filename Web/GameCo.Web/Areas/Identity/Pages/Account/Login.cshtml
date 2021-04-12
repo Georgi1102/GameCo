@@ -1,0 +1,33 @@
+﻿@page
+@model LoginModel
+
+<div class="loginbox">
+    <img src="~/Images/avatar.png" class="avatar"/>
+    <div class="row ml-5 mt-5 ">
+        <div>
+            <section>
+                <form id="account" method="post">
+                    <hc>Use a local account to log in.</hc>
+                    <div class="form-group">
+                        <label asp-for="Input.Username">Your username</label>
+                        <input asp-for="Input.Username" class="form-control textbox" placeholder="Enter username:" />
+                        <span asp-validation-for="Input.Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group ">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control textbox" placeholder="Enter password:" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center ">
+                        <button type="submit" class="btn btn-custom" >Log in</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

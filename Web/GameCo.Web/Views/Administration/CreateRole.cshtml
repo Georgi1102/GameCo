@@ -1,0 +1,29 @@
+﻿@model CrateRoleViewModel
+
+@{ ViewData["Title"] = "Create Role"; }
+
+
+
+<div class="createrolebox">
+    <img src="~/Images/RoleAdd.png" class="avatar" />
+    <div class="text-center mt-5">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="ml-3 mb-3 mr-3">
+        <form method="post">
+
+            <div class="form-group">
+                <label asp-for="NameRole"></label>
+                <input asp-for="NameRole" class="form-control" placeholder="Enter role name:" />
+                <span asp-validation-for="NameRole" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-customCR">Create role</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
