@@ -8,6 +8,5 @@ namespace GameCo.Data.Models
         public string City { get; set; }
 
         public int AccountLevel { get; set; }
-
     }
 }

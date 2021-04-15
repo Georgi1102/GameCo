@@ -69,10 +69,5 @@ namespace GameCo.Web.Controllers
 
             return Redirect("/");
         }
-
-
-
-
-
     }
 }

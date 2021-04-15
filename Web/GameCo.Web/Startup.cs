@@ -34,6 +34,7 @@ namespace GameCo.Web
             services.AddTransient<IAchievementsService, AchievementService>();
             services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(
                 Directory.GetCurrentDirectory(), "UploadedFiles")));
+            services.AddTransient<GameCoDbContext>();
 
 
             //services.AddIdentity<GameCoUser, IdentityRole<string>>(options =>)  ===> same exeption on line 35

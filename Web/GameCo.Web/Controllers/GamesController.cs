@@ -6,6 +6,10 @@ using GameCo.Services.Models.Games;
 using Microsoft.AspNetCore.Identity;
 using GameCo.Data.Models;
 using System.Security.Claims;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.Json;
+
 
 namespace GameCo.Web.Controllers
 {
@@ -14,7 +18,7 @@ namespace GameCo.Web.Controllers
         private readonly IMappingService mappingService;
         private readonly IGamesService gameService;
         private readonly UserManager<GameCoUser> userManager;
-      
+
 
         public GamesController(IMappingService mappingService, IGamesService gameService, UserManager<GameCoUser> userManager)
         {
@@ -29,6 +33,7 @@ namespace GameCo.Web.Controllers
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> CreateGame(CreateGameBindingModel createGameBindingModel)
         {
@@ -36,25 +41,51 @@ namespace GameCo.Web.Controllers
 
             bool result = await this.gameService.CreateGame(gameServiceModel);
 
-           return Redirect("/");
+            return Redirect("/");
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> SetRatingValue([FromBody] int ratingValue, CreateRatingBindingModel ratingBindingModel)
+        public async Task<IActionResult> SetRatingValue([FromBody] CreateRatingBindingModel ratingBindingModel)
         {
-
             RatingServiceModel ratingServiceModel = this.mappingService.MapOject<RatingServiceModel>(ratingBindingModel);
 
-            ratingServiceModel.RatingValue = ratingValue;
+            var userId = ratingServiceModel.UserId = GetUserId();
 
-            ratingServiceModel.UserId = GetUserId();
+            var currUserRateEntities = gameService.GetAllRatingEntities(userId);
 
-            //TODO add and gameId
 
-            bool result = await this.gameService.CreateRating(ratingServiceModel);
+            if (currUserRateEntities.Count <= 0)
+            {               
+                bool result = await this.gameService.CreateRating(ratingServiceModel);
+            }
+           
 
-            return Redirect("/");
+            else
+            {
+                bool isInTheIf = false;
+
+                for (int i = 0; i < currUserRateEntities.Count; i++)
+                {
+                    if (currUserRateEntities[i].GameId == ratingServiceModel.GameId)
+                    {
+                        isInTheIf = true;
+
+                        currUserRateEntities[i].RatingValue = ratingServiceModel.RatingValue;
+                        ratingServiceModel.Id = currUserRateEntities[i].Id;
+                        bool result = await gameService.UpdateRating(ratingServiceModel);
+                        break;
+                    }
+                }
+
+                if (!isInTheIf)
+                {
+                    bool resultOtherResult = await this.gameService.CreateRating(ratingServiceModel);
+                }
+                           
+            }
+            
+            return Ok();
         }
 
 
@@ -62,8 +93,13 @@ namespace GameCo.Web.Controllers
         {
             var currUser = userManager.GetUserAsync(HttpContext.User);
 
-            return ((ClaimsIdentity)this.User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
-         
+            if (!currUser.IsCompleted)
+            {
+                return ((ClaimsIdentity)this.User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+
+            return "";
+
         }
     }
 }

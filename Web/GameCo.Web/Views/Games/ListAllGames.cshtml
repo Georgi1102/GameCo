@@ -1,0 +1,21 @@
+﻿@using GameCo.Services.Models.Games
+@model List<GameServiceModel>
+
+@if (Model.Any())
+{
+    foreach (var game in Model)
+    {
+        <div class="card mb-3 mt-4">
+            <div class="card-header mb-0 text-center">
+                @game.Name
+            </div>
+            <div class="card-body ">                      
+                Game Name: @game.Name
+            </div>
+            <div class="card-body">
+                Game Id: @game.Id
+            </div>
+        </div>
+    }
+}
+

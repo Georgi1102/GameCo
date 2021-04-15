@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GameCo.Web.Controllers.ExtendedLogic;
+using System.IO.Compression;
 
 namespace GameCo.Web.Controllers
 {
@@ -15,7 +16,7 @@ namespace GameCo.Web.Controllers
     public class FileController : Controller
     {
         private const string folderToUpload = "UploadedFiles";
-
+        private const string folderToUnzip = "ExtractZipFolder";
         private string filePath;
         private bool isUploaded;
         private readonly IFileProvider fileProvider;
@@ -158,6 +159,7 @@ namespace GameCo.Web.Controllers
             return Redirect("~/Home");
         }
 
+      
         private string GetContentType(string path)
         {
             var types = GetMimeTypes();

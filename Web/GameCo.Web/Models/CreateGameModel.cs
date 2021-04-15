@@ -8,6 +8,8 @@ namespace GameCo.Web.Models
 {
     public class CreateGameModel
     {
+        public string Id { get; set; }
+
         [Required]
         public string GameName { get; set; }
     }
