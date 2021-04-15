@@ -15,8 +15,6 @@ namespace GamesControllerTest
         private GameCoDbContext gameCoDbContext;
         private IMappingService mappingService;
         private IGamesService gameService;
-        private IRatingService ratingService;
-        private IAchievementsService achievementService;
 
 
         [SetUp]
@@ -29,7 +27,6 @@ namespace GamesControllerTest
             this.gameCoDbContext = new GameCoDbContext(options);
             this.mappingService = new MappingService();
             this.gameService = new GameService(gameCoDbContext, mappingService);
-            this.achievementService = new AchievementService(gameCoDbContext, mappingService);
         }
 
         #region Game tests
@@ -106,59 +103,12 @@ namespace GamesControllerTest
         }
         #endregion
 
-        #region Rating tests
-        [Test]
-        public async Task TestIfTheUserIdIsTheCorrectOne()
-        {
-
-            GameCoRating ratingServiceModel = new GameCoRating
-            {
-                Id = "27",
-                RatingValue = 4,
-                UserId = "45",
-                GameId = "1-3"
-            };
-            GameCoRating expectedRatingEntity = new GameCoRating
-            {
-                Id = "27",
-                RatingValue = 4,
-                UserId = "45",
-                GameId = "1-3"
-            };
-
-            Assert.AreEqual(ratingServiceModel.UserId, expectedRatingEntity.UserId);
-        }
-
-        #endregion
-
-        #region Achievement tests
-
-        [Test]
-        public async Task TestIfCreatingAchievementAndSettingIdToNotNull()
-        {
-            AchievementServiceModel achievementServiceModel = new AchievementServiceModel
-            {
-                Id = "27",
-                Name = "TestName",
-                Description = "Testdescription",
-                GameId = "20"
-            };
-            bool result = await this.achievementService.CreateAchievement(achievementServiceModel);
-
-            Assert.True(result);
-            Assert.NotNull(achievementServiceModel.Id);
-        }
-
-        #endregion
-
         [TearDown]
         public void Dispose()
         {
             this.gameCoDbContext.Dispose();
             this.mappingService = null;
             this.gameService = null;
-            this.ratingService = null;
-            this.achievementService = null;
         }
     }
 }
