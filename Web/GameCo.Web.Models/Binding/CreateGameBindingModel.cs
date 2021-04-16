@@ -15,6 +15,9 @@ namespace GameCo.WebModels.Binding
         public string Name { get; set; }
 
         [Required]
-        public IFormFile file { get; set; }
+        public IFormFile GameFile { get; set; }
+
+        [Required]
+        public IFormFile ImageFile { get; set; }
     }
 }

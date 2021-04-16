@@ -17,9 +17,11 @@ namespace GameCo.Services
     {
         private readonly GameCoDbContext gameCoDbContext;
         private readonly IMappingService mappingService;
-        private const string wwwrootFolder = "wwwroot\\DownloadableFiles";
+        private const string wwwrootFolder = @"D:\Projects\Web\GameCo\Web\GameCo.Web\wwwroot\Games\";
+        private const string imagesRoot = @"D:\Projects\Web\GameCo\Web\GameCo.Web\wwwroot\Images\";
         private bool isUploaded;
-        private string filePath;
+        private string gamefilePath;
+        private string imagefilePath;
 
 
         public GameService(GameCoDbContext gameCoDbContext, IMappingService mappingService)
@@ -97,16 +99,18 @@ namespace GameCo.Services
                 }
 
             }
-
             return list;
         }
 
-        public async Task<bool> UnZipIt(string someFile)
+        public async Task<bool> UnZipIt(IFormFile someFile)
         {
             if (Directory.Exists(wwwrootFolder))
             {
-                string exractDirName = @"E:\Project_2020_2021\ZipProject\TestZipFile\WebApplication1\UploadedFiles\CubyWeb.zip";
-                ZipFile.ExtractToDirectory(exractDirName, wwwrootFolder);
+
+                string filePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), wwwrootFolder));
+                string extractDir = filePath + someFile.FileName;
+               
+                ZipFile.ExtractToDirectory(extractDir, wwwrootFolder);
 
                 return true;
             }
@@ -114,34 +118,47 @@ namespace GameCo.Services
             return false;
         }
 
-        public async Task<bool> Upload(IFormFile someFile)
+        public async Task<bool> Upload(IFormFile gameFile, IFormFile imageFile)
         {
-            filePath = "";
+            gamefilePath = "";
+            imagefilePath = "";
             isUploaded = false;
 
             try
             {
-                if (someFile.Length > 0)
+                if (gameFile.Length > 0 && imageFile.Length > 0)
                 {
-                    string fileName = Path.GetFileName(someFile.FileName);
-                    filePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), wwwrootFolder));
+                    string gameFileName = Path.GetFileName(gameFile.FileName);
+                    string imageFileName = Path.GetFileName(imageFile.FileName);
+
+                    gamefilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), wwwrootFolder));
+                    imagefilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), imagesRoot));
 
                     //Create folder in wwwroot
                     //TODO: Specifie in wwwroot > downloadableFiles > currentFolder ; (.Combine?)
                     //Idea: We create a directory in this method because we want to take the name of the initial file. 
-                    string folderName = someFile.FileName.Remove(someFile.FileName.Length - 4);
-                    System.IO.Directory.CreateDirectory("\\wwwroot\\Games"+folderName);
+
+                   
 
                     //DO NOT FORGET TO CLOSE THE STREAM!!!
-                    using (var fileStream = new FileStream(Path.Combine(filePath, fileName), FileMode.Create))
+                    //fileStream for the game
+                    using (var fileStream = new FileStream(Path.Combine(gamefilePath, gameFileName), FileMode.Create))
                     {
-                        await someFile.CopyToAsync(fileStream);
+                        await gameFile.CopyToAsync(fileStream);
+                        fileStream.Close();
+                    }
+
+
+                    //fileStream for the image
+                    using (var fileStream = new FileStream(Path.Combine(imagefilePath, imageFileName), FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(fileStream);
                         fileStream.Close();
                     }
 
                     isUploaded = true;
 
-                    await this.UnZipIt(filePath);
+                    await this.UnZipIt(gameFile);
                 }
 
                 else

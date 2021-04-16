@@ -17,8 +17,8 @@ namespace GameCo.Services
         public List<GameServiceModel> GetAllGameEntities();
         public List<RatingServiceModel> GetAllRatingEntities(string userId);
 
-        Task<bool> UnZipIt(string someFile);
+        Task<bool> UnZipIt(IFormFile someFile);
 
-        Task<bool> Upload(IFormFile someFile);
+        Task<bool> Upload(IFormFile gameFile, IFormFile imageFile);
     }
 }

@@ -39,7 +39,7 @@
         <div class="carousel-inner">
             @foreach (var game in gameServiceModels)
             {
-                <div class="game carousel-item @(game.Name == "CS" ? "active" : "")" id="@game.Id">
+                <div class="game carousel-item @(game.Name == "Foxey" ? "active" : "")" id="@game.Id">
                     <div class="container d-flex align-items-center">
                         <div class="row align-items-center">
                             <a href="~/Games/@game.Name/index.html">

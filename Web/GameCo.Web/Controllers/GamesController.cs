@@ -38,12 +38,13 @@ namespace GameCo.Web.Controllers
         public async Task<IActionResult> CreateGame(CreateGameBindingModel createGameBindingModel)
         {
             GameServiceModel gameServiceModel = this.mappingService.MapOject<GameServiceModel>(createGameBindingModel);
-
+          
             bool result = await this.gameService.CreateGame(gameServiceModel);
 
             if(result)
             {
-                await this.gameService.Upload(createGameBindingModel.file);
+                await this.gameService.Upload(createGameBindingModel.GameFile, createGameBindingModel.ImageFile);
+                
             }
 
             return Redirect("/");
