@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCo.Data.Models;
 using GameCo.Services.Models.Games;
+using Microsoft.AspNetCore.Http;
 
 namespace GameCo.Services
 {
@@ -15,5 +16,9 @@ namespace GameCo.Services
         string FindGameById(string id);
         public List<GameServiceModel> GetAllGameEntities();
         public List<RatingServiceModel> GetAllRatingEntities(string userId);
+
+        Task<bool> UnZipIt(string someFile);
+
+        Task<bool> Upload(IFormFile someFile);
     }
 }

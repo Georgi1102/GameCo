@@ -12,5 +12,6 @@ namespace GameCo.Web.Models
 
         [Required]
         public string GameName { get; set; }
+
     }
 }

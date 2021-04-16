@@ -1,6 +1,4 @@
 ﻿@using GameCo.Services.Models.Games
-@*@using Newtonsoft.Json
-@using Nancy.Json;*@
 @using System.Text.Json
 @using System.Text.Json.Serialization
 @model List<GameServiceModel>
@@ -13,7 +11,7 @@
 
     var dict = ratingServiceModels.ToDictionary(key => key.GameId, value => value.RatingValue.ToString());
 
-    //TODO check for dublicate entries in db
+    //TODO check for dublicate entries in db - Done
     
     var asd = JsonSerializer.Serialize(ratingServiceModels);
 
@@ -41,7 +39,7 @@
         <div class="carousel-inner">
             @foreach (var game in gameServiceModels)
             {
-                <div class="game carousel-item @(game.Name == "Foxey" ? "active" : "")" id="@game.Id">
+                <div class="game carousel-item @(game.Name == "CS" ? "active" : "")" id="@game.Id">
                     <div class="container d-flex align-items-center">
                         <div class="row align-items-center">
                             <a href="~/Games/@game.Name/index.html">

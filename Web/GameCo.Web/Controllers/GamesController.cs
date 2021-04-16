@@ -41,6 +41,11 @@ namespace GameCo.Web.Controllers
 
             bool result = await this.gameService.CreateGame(gameServiceModel);
 
+            if(result)
+            {
+                await this.gameService.Upload(createGameBindingModel.file);
+            }
+
             return Redirect("/");
         }
 
