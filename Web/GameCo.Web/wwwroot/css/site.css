@@ -2,50 +2,57 @@
     padding: 0;
     /* height: 100vh;*/
 }
+
 #mainTag {
-    background-color: rgb(80,86,87);
-    /*background: linear-gradient(0deg, rgba(80,86,87,1) 6%, rgba(65,71,65,1) 50%, rgba(80,86,87,1) 94%);*/
+    background: rgb(80,86,87);
+    /*background: linear-gradient(90deg, rgba(80,86,87,1) 1%, rgba(61,137,143,1) 20%, rgba(34,152,161,1) 50%, rgba(68,117,121,1) 80%, rgba(80,86,87,1) 98%);*/
 }
 
 .btn-custom {
-    background: rgb(80,86,87);
-    background: linear-gradient(90deg, rgba(80,86,87,1) 1%, rgba(61,137,143,1) 20%, rgba(34,152,161,1) 50%, rgba(68,117,121,1) 80%, rgba(80,86,87,1) 98%);
-    border-radius:20px;
-    height:40px;
-    width:90px;
+    background: rgb(77,125,133);
+    background: linear-gradient(90deg, rgba(77,125,133,1) 1%, rgba(61,140,147,1) 20%, rgba(37,165,175,1) 50%, rgba(61,140,147,1) 80%, rgba(77,125,133,1) 99%);
+    border-radius: 20px;
+    height: 40px;
+    width: 90px;
 }
+
 .btn-customCG {
-    background: rgb(80,86,87);
-    background: linear-gradient(90deg, rgba(80,86,87,1) 1%, rgba(61,137,143,1) 20%, rgba(34,152,161,1) 50%, rgba(68,117,121,1) 80%, rgba(80,86,87,1) 98%);
+    background: rgb(77,125,133);
+    background: linear-gradient(90deg, rgba(77,125,133,1) 1%, rgba(61,140,147,1) 20%, rgba(37,165,175,1) 50%, rgba(61,140,147,1) 80%, rgba(77,125,133,1) 99%);
     border-radius: 20px;
     height: 40px;
     width: 120px;
 }
+
 .btn-customCR {
-    background: rgb(80,86,87);
-    background: linear-gradient(90deg, rgba(80,86,87,1) 1%, rgba(61,137,143,1) 20%, rgba(34,152,161,1) 50%, rgba(68,117,121,1) 80%, rgba(80,86,87,1) 98%);
+    background: rgb(77,125,133);
+    background: linear-gradient(90deg, rgba(77,125,133,1) 1%, rgba(61,140,147,1) 20%, rgba(37,165,175,1) 50%, rgba(61,140,147,1) 80%, rgba(77,125,133,1) 99%);
     border-radius: 20px;
     height: 40px;
     width: 120px;
 }
+
 .btn-green {
     background: rgb(142,212,134);
     background: linear-gradient(90deg, rgba(142,212,134,1) 0%, rgba(94,226,80,1) 50%, rgba(142,212,134,1) 100%);
 }
+
 .btn-red {
     background: rgb(180,122,122);
     background: linear-gradient(90deg, rgba(180,122,122,1) 0%, rgba(199,32,32,1) 50%, rgba(180,122,122,1) 100%);
 }
-.textbox{
-    border:none;
-    outline:none;
-    border-bottom:1px solid;
-    background:transparent;
+
+.textbox {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+    background: transparent;
 }
+
 footer {
     clear: both;
     position: absolute;
-    bottom:0;
+    bottom: 0;
     width: 100%;
     background-clip: padding-box;
     padding: 20px;
@@ -53,23 +60,26 @@ footer {
     text-align: center;
     white-space: nowrap;
 }
+
 body {
     background: rgb(104,111,112);
     background: linear-gradient(90deg, rgba(104,111,112,1) 5%, rgba(78,86,87,1) 22%, rgba(104,111,112,1) 50%, rgba(78,86,87,1) 78%, rgba(104,111,112,1) 95%);
 }
+
 .greengradient {
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
 }
+
 p2 {
-    font-size:20px;
+    font-size: 20px;
 }
 
 .loginbox {
-    width: 520px;
+    width: auto;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
@@ -77,33 +87,36 @@ p2 {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
 }
+
 .registerbox {
-    width: 480px;
+    width: auto;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
 }
+
 .createrolebox {
-    width: 480px;
+    width: auto;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
 }
+
 .creategamebox {
-    width: 340px;
+    width: auto;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
@@ -111,11 +124,12 @@ p2 {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
 }
+
 .uploadfilebox {
-    width: 390px;
+    width: auto;
     height: 320px;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
@@ -123,11 +137,12 @@ p2 {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
 }
+
 .listoffilesbox {
-    width: 1200px;
+    width: auto;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
@@ -135,11 +150,12 @@ p2 {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
 }
+
 .addrolesbox {
     width: 340px;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
@@ -147,18 +163,21 @@ p2 {
     transform: translate(-50%, 10%);
     box-sizing: border-box;
 }
+
 .addachievementbox {
-    width: 340px;
+    width: auto;
     height: auto;
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
     border-radius: 20px;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
+    animation: ease-in;
 }
+
 .avatar {
     width: 100px;
     height: 100px;
@@ -175,17 +194,19 @@ p2 {
     top: -50px;
     left: calc(50% - 50px);
 }
-hc{
-    font-size:34px;
+
+hc {
+    font-size: 34px;
 }
+
 .bgcolor {
     background: rgb(43,186,196);
-    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(72,228,94,1) 50%, rgba(43,186,196,1) 94%);
+    background: radial-gradient(circle, rgba(43,186,196,1) 6%, rgba(90,240,176,1) 50%, rgba(43,186,196,1) 94%);
 }
+
 a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
     text-decoration: none;
     color: initial;
 }
-
