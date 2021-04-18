@@ -56,11 +56,23 @@ namespace GameCo.Services
 
         public async Task<bool> UpdateRating(RatingServiceModel ratingServiceModel)
         {
-            
-            gameCoDbContext.Entry(await gameCoDbContext.Ratings.FirstOrDefaultAsync(x => x.GameId == ratingServiceModel.GameId))
-                .CurrentValues.SetValues(ratingServiceModel);
-            await this.gameCoDbContext.SaveChangesAsync();
-            return true;
+            var wantedRating = gameCoDbContext.Ratings.Where(x => x.GameId == ratingServiceModel.GameId);
+
+            var rating = wantedRating.FirstOrDefault(x => x.UserId == ratingServiceModel.UserId);
+
+
+            if (rating.RatingValue != ratingServiceModel.RatingValue && rating.UserId == ratingServiceModel.UserId)
+            {
+                rating.RatingValue = ratingServiceModel.RatingValue;
+
+                this.gameCoDbContext.Update(rating);
+                await gameCoDbContext.SaveChangesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string FindGameById(string id)
